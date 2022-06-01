@@ -8,12 +8,7 @@ import { UserContext } from '../../contexts/user.context'
 
 const Navigation = () => {
 
-  const { currentUser, setCurrentUser } = useContext(UserContext)
-
-  const signOutHandler = async () => {
-    await signOutUser()
-    setCurrentUser(null)
-  }
+  const { currentUser } = useContext(UserContext)
 
   return (
     <>
@@ -24,7 +19,10 @@ const Navigation = () => {
         <NavLinks>
           {
             currentUser ? (
-              <NavLink as='span' onClick={signOutHandler}>Odhlásit</NavLink>
+              <>
+                <NavLink to='/new'>+</NavLink>
+                <NavLink to='/' onClick={signOutUser}>Odhlásit</NavLink>
+              </>
             ) : (
               <NavLink to="/auth">Přihlásit</NavLink>
             )

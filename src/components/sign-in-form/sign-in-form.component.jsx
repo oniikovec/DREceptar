@@ -1,6 +1,4 @@
-import { useContext, useState } from 'react'
-
-import { UserContext } from '../../contexts/user.context'
+import { useState } from 'react'
 
 import FormInput from '../../components/form-input/form-input.component.jsx'
 import Button from '../button/button.component.jsx'
@@ -20,26 +18,20 @@ const SignInFrom = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext)
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormFields({ ...formFields, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password)
-      console.log(user);
-
+      await signInAuthUserWithEmailAndPassword(email, password)
       resetFormFields()
-      setCurrentUser(user)
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':

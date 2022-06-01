@@ -3,7 +3,8 @@ import { initializeApp } from "firebase/app";
 import { 
   getAuth, 
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -32,3 +33,19 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 // SIGN OUT
 export const signOutUser = async () => await signOut(auth);
+
+// gets triggered both times when user signs in or signs out; at the moment that auth changes, it il run a callback
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
