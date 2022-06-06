@@ -6,9 +6,27 @@
 
 body {
   margin: 0% 20%;
+  max-width: 1100px;
+  min-width: 270px;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0% 10%;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    margin: 0% 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    margin: 0% 3%;
+  }
 }
 
 code {
@@ -19,6 +37,10 @@ code {
 a {
   text-decoration: none;
   color: black;
+}
+
+h1, h3 {
+  font-weight: 500;
 }
 
 .app-wrapper-only-for-footer-cause-im-stuped {

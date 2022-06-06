@@ -17,9 +17,9 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />
-        <Route path="auth" element={currentUser ? <Home /> : <Authentication/>} />
+        <Route path="auth" element={currentUser ? <Navigate to='/' replace/> : <Authentication/>} />
         <Route path='new' element={currentUser ? <NewRecipeForm /> : <Navigate to="/auth" replace />} />
-        <Route path='recipe' element={<Recipe />} />
+        <Route path=':recipe' element={<Recipe />} />
       </Route>
     </Routes>
   );

@@ -1,9 +1,68 @@
 import styled from 'styled-components'
-import briocheBunsImage from '../../assets/recipe-images/brioche-buns.jpg'
+import { Link } from 'react-router-dom'
 
-export const RecipeCardContainer = styled.div`
-  width: 360px;
-  height: 540px;
+export const RecipeCardImage = styled.div`
+  width: 100%;
+  height: 100%;
+  flex: 3;
+  background-size: cover;
+  background-position: center;
+  background-image: ${({imageUrl}) => `url(${imageUrl})`};
+  background-color: black;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+`
+
+export const RecipeCardDescription = styled.div`
+  margin: 5px 10px;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: space-between;
+  h1 {
+    font-size: 1rem;
+  }
+  small {
+    padding-bottom: 10px;
+    color: gray;
+    align-items: flex-end;
+  }
+
+  @media screen and (max-width: 1366px) {
+    h1 {
+      font-size: 0.9rem;
+    }
+    small {
+      font-size: 9px;
+    }
+  }
+  @media screen and (max-width: 1366px) {
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 414px) {
+    margin: 5px;
+
+    h1 {
+      font-size: 0.9rem;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+`
+
+export const RecipeCardContainer = styled(Link)`
+  min-width: 30%;
+  height: 200px;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
@@ -13,52 +72,5 @@ export const RecipeCardContainer = styled.div`
 
   &:hover {
     transform: scale(1.03);
-  }
-`
-
-export const RecipeCardImageContainer = styled.div`
-  width: 358px;
-  height: 268px;
-`
-export const RecipeCardImage = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  background-image: url(${briocheBunsImage});
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: 50%;
-  border-radius: 5px 5px 0 0;
-  transition: transform 0.3s;
-
-  // DARKEN and TEXT on hover
-  /* span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: rgba(255, 255, 255, 0);
-      font-size: 1.5rem;
-    }
-  &:hover {
-    transition: filter 0.3s, color 0.3s;
-    filter: brightness(50%);
-    span {
-      color: rgba(255, 255, 255, 1);
-    }    
-  } */
-`
-
-export const RecipeCardDescription = styled.div`
-  margin: 5px 20px;
-  display: flex;
-  flex-direction: column;
-  h1 {
-    font-size: 1.5rem;
-  }
-  small {
-    padding-bottom: 10px;
-    color: gray;
   }
 `

@@ -7,7 +7,12 @@ export const NavigationContainer = styled.div`
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   z-index: 10;
+
+  @media screen and (max-width: 414px) {
+    margin: 0;
+  }
 `
 
 export const LogoContainer = styled(Link)`
@@ -16,6 +21,9 @@ export const LogoContainer = styled(Link)`
 
 export const Logo = styled.img`
 
+  @media screen and (max-width: 414px) {
+    width: 150px;
+  }
 `
 
 export const NavLinks = styled.div`
@@ -33,5 +41,10 @@ export const NavLink = styled(Link)`
 
   &:hover {
     color: gray;
+  }
+
+  @media screen and (max-width: 414px) {
+    font-size: 15px;
+    padding: 10px 5px;
   }
 `
