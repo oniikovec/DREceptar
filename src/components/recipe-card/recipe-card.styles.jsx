@@ -69,6 +69,7 @@ export const RecipeCardContainer = styled(Link)`
   border-radius: 5px;
   transition: transform 0.3s;
   cursor: pointer;
+  box-shadow: 2px 2px 6px lightgray;
 
   &:hover {
     transform: scale(1.03);

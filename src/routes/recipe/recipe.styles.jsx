@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const RecipeContainer = styled.div`
-  background-color: papayawhip;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@ export const RecipeContainer = styled.div`
   h3 {
     padding-bottom: 10px;
   }
-  
 `
 
 export const RecipeTopContainer = styled.div`
@@ -22,6 +20,8 @@ export const RecipeTopContainer = styled.div`
 export const RecipeImageContainer = styled.div`
   width: 60%;
   height: 400px;
+  border: 1px solid black;
+  border-radius: 5px;
 `
 export const RecipeImage = styled.div`
   width: 100%;
@@ -37,7 +37,6 @@ export const RecipeIngredientsContainer = styled.div`
   flex-direction: column;
 
   .ingredience-label {
-    font-family: system-ui, sans-serif;
     display: grid;
     grid-template-columns: 1em auto;
     gap: 15px;
@@ -54,6 +53,7 @@ export const RecipeIngredientsContainer = styled.div`
     margin: 0;
     // custom style
     cursor: pointer;
+    font: inherit;
     width: 20px;
     height: 20px;
     border: 2px solid currentColor;

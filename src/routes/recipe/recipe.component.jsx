@@ -36,8 +36,8 @@ const Recipe = () => {
                 <h3>Ingredience</h3>
                 {
                   recipe.ingredients.map(ingredient => (
-                    <label className='ingredience-label'>
-                      <input type='checkbox' />
+                    <label className='ingredience-label' key={ingredient}>
+                      <input type='checkbox'/>
                       {ingredient}
                     </label>
                   ))
@@ -50,7 +50,7 @@ const Recipe = () => {
               <ol>
                 {
                   recipe.instructions.map(instruction => (
-                    <li>{instruction}</li>
+                    <li key={instruction}>{instruction}</li>
                   ))
                 }
               </ol>

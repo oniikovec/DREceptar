@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const RecipesContainer = styled.div`
-  background-color: papayawhip;
   padding: 70px 0;
   display: grid;
   
