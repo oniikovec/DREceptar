@@ -30,7 +30,7 @@ const Navigation = () => {
           
         </NavLinks>
       </NavigationContainer>
-      
+
       <Outlet />
     </>
   )

@@ -40,7 +40,7 @@ export const NavLink = styled(Link)`
   transition: color 0.3s;
 
   &:hover {
-    color: gray;
+    color: skyblue;
   }
 
   @media screen and (max-width: 414px) {

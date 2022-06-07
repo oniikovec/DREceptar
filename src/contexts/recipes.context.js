@@ -6,11 +6,13 @@ import { getCategoriesAndDocuments } from "../utils/firebase.utils";
 
 
 export const RecipesContext = createContext({
-  recipesMap: {}
+  recipesMap: {},
+  isLoading: false,
 })
 
 export const RecipesProvider = ({ children }) => {
   const [recipesMap, setRecipesMap] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   // useEffect(() => {
   //   addCollectionAndDocuments('recipes', RECIPES_DATA);
@@ -18,15 +20,16 @@ export const RecipesProvider = ({ children }) => {
 
   useEffect(() => {
     const getRecipesMap = async () => {
+      setIsLoading(true)
       const recipeMap = await getCategoriesAndDocuments()
-      
       setRecipesMap(recipeMap)
+      setIsLoading(false)
     }
     getRecipesMap()
   }, [])
 
 
-  const value = { recipesMap }
+  const value = { recipesMap, isLoading }
 
   return (
     <RecipesContext.Provider value={value}>

@@ -8,7 +8,7 @@ export const RecipeCardImage = styled.div`
   background-size: cover;
   background-position: center;
   background-image: ${({imageUrl}) => `url(${imageUrl})`};
-  background-color: black;
+  background-color: white;
   overflow: hidden;
   border-radius: 5px 5px 0 0;
 `
@@ -65,11 +65,11 @@ export const RecipeCardContainer = styled(Link)`
   height: 200px;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   border-radius: 5px;
   transition: transform 0.3s;
   cursor: pointer;
-  box-shadow: 2px 2px 6px lightgray;
+  background-color: #fff;
+  box-shadow: 2px 2px 6px gray;
 
   &:hover {
     transform: scale(1.03);

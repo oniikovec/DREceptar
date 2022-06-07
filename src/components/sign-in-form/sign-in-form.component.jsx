@@ -35,10 +35,10 @@ const SignInFrom = () => {
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':
-          alert('nesprávné heslo lol');
+          alert('LOL NO');
           break;
         case 'auth/user-not-found':
-          alert('tak tohle vůůůbec');
+          alert('LOL NO');
           break;
         default:
           console.log(error);

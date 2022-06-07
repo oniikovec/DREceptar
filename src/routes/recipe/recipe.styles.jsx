@@ -4,24 +4,73 @@ export const RecipeContainer = styled.div`
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  font-size: 15px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 3px 3px 15px gray;
+  
   h1 {
-    padding-bottom: 20px;
+    font-size: 2.3rem;
   }
   h3 {
-    padding-bottom: 10px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    line-height: 1rem;
+    font-size: 1.3rem;
   }
-`
+  small {
+    margin-bottom: 25px;
+    color: gray;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 20px;
+    h1 {
+    font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding: 15px;
+
+    h1 {
+    font-size: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 414px) {
+    margin-top: 10px;
+    padding: 10px;
+
+    h1 {
+    font-size: 1.4rem;
+    }
+    h3 {
+    font-size: 1.2rem;
+    }
+  }
+  `
 
 export const RecipeTopContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 
 export const RecipeImageContainer = styled.div`
   width: 60%;
   height: 400px;
-  border: 1px solid black;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px gray;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `
 export const RecipeImage = styled.div`
   width: 100%;
@@ -36,8 +85,17 @@ export const RecipeIngredientsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 1366px) {
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    padding-left: 0;
+  }
+
   .ingredience-label {
     display: grid;
+    align-items: center;
     grid-template-columns: 1em auto;
     gap: 15px;
   }
@@ -56,7 +114,7 @@ export const RecipeIngredientsContainer = styled.div`
     font: inherit;
     width: 20px;
     height: 20px;
-    border: 2px solid currentColor;
+    border: 2px solid skyblue;
     border-radius: 3px;
     transform: translateY(-0.075em);
     // checked vs unchecked state
@@ -82,4 +140,16 @@ export const RecipeBottomContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px;
+
+  @media screen and (max-width: 1024px) {
+    margin: 50px 0;
+  }
+
+  ol {
+    margin-bottom: 50px;
+  }
+  li {
+    margin-bottom: 10px;
+    margin-left: 16px;
+  }
 `

@@ -7,7 +7,7 @@ const RECIPES_DATA = [
         name: 'Ondřejovy Brioche Buns',
         url: 'ondrejovy-brioche-buns',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/brioche-buns.jpg?alt=media&token=fd041f09-6924-4b17-85a7-863039293ec7',
-        createdAt: '8. 5. 2021',
+        createdAt: '14. 5. 2020',
         ingredients: [
           '1000 g hl. mouka na kynuté těsto (100 %)',
           '300 g vody 33°C (30 %)',
@@ -41,22 +41,48 @@ const RECIPES_DATA = [
     ],
   },
   {
-    title: 'ondrejova-pizza',
+    title: 'ondrejova-pizza-napoletana',
     items: [
       {
         id: 2,
-        name: 'Ondřejova Pizza',
-        url: 'ondrejova-pizza',
+        name: 'Ondřejova Pizza Napoletana',
+        url: 'ondrejova-pizza-napoletana',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/pizza.jpg?alt=media&token=45dfaab0-f1c8-490f-97a9-8bac2f764eae',
-        createdAt: '1. 6. 2022',
+        createdAt: '25. 6. 2020',
         ingredients: [
-          '200 g hoven', 
-          '500 g vody'
+          '800 g hl. mouka babišina na pizzu (100 %)', 
+          '560 g voda (70 %)',
+          '22 g sůl (2,75 %)',
+          '1,6 g čerstvé droždí (0,2 %)',
         ],
         instructions: [
-          'Zaprvné nekaďte při vaření',
-          'Zadruhé vůbec nesmí jídlo přijít do styku s bordelem'
-        ]
+          'Do vody vsypat sůl a zcela rozmíchat.',
+          'Přidat cca 10 % mouky a rozmíchat.',
+          'Až nyní přidat rozdrobené droždí, pečlivě rozmíchat.',
+          'Dosypat mouku a uhníst na rychlost 4 cca 5 minut.',
+          'Nechat odpočinout 30 minut.',
+          'Hníst dalších 20 minut a vybudovat pořádnou sílu těsta.',
+          'Dokončit dotahováním koule na stole, do hladka. Zpočátku může trošku lepit, nepodsypávat ani nenamáčet!',
+          'Finální stretch&fold a dotažení.',
+          'Kouli vložíme do zakryté mísy a necháme v teplejším prostředí 1 hodinu kynout (moc nenakyne).',
+          'Po hodině těsto vyklopíme a rozdělíme na jednotlivé pizzy. 6x 200 g menší osobní pizza + 1x Amálka 150 g.',
+          'Vytvoříme pořádně dotažené "mozzarely", které naskládáme do nádoby na kynutí vysypané moukou. Pizzy poprášíme moukou a pečlivě zakryjeme, aby se tam nedostal žádný vzduch a neokoraly.',
+          'Necháme fermentovat. Po 4 hodinách pokojového kynutí je těsto už použitelné. Po 24 h kynutí v lednici je ideální. V lednici uchovat maximálně 7 dní, záleží na vnitřní teplotě.',
+          'Před pečením necháme 2 h v pokojové teplotě a stále zakryté.',
+          'Pizzu tvarujeme tak, jak kynulo, vršek je vršek a spodek je spodek. Posypeme a podsypeme krupičkou/semolinou (už ne moukou!).',
+          'Plochou prstů tvarujeme okraj, který nikdy nemačkáme, stejně tak moc nemačkáme střed. Když už víc mačkat nejde, bereme pizzu na pěsti a rozházíme si jí do požadované velikosti nebo ji vyfackujeme.',
+          'Lopatu posypeme semolinou/krupicí a přehodíme na ní pizzu. Doroztáhneme do požadované velikosti. Ozdobíme a moc to nezdržujeme, aby se sugo nepropilo a tím nepřilepilo těsto k lopatě. Na okraje lehce oliváč. Čas od času můžeme těstem na lopatě pošoupnout.',
+          'Otevřeme rozpálenou troubu na max (zapnutá alespoň hodinu před pečením), tím termostat začne troubu dohřívat, pizzu položíme na ocelový plát a necháme 60 s. Poté zašoupneme dovnitř a zavřeme. Po 120 s vyndaváme.',
+          'Necháme odpočinout na mřížce a dosprejujeme oliváčem.',
+        ],
+        tips: [
+          'Každých 9°C dvojnásobí/půlí rychlost fermentace, čím pomalejší kynutí, tím komplexnější chuť těsta.',
+          'Když těsto při hnětení moc lepí, stačí chvíli počkat, nepřisypávat mouku!',
+          'Při nízké teplotě bude pizza ještě před zhnědnutím suchá a tvrdá a sýr pustí vodu. A to nechceš.',
+          'Nepředtvarovávat okraje, vzduch se pak nedostane do krusty.',
+          'Na ocel nepošupovat, ale jen odtahovat k sobě, aby se pizza nesmrskla.',
+          'Pozor na olej na lopatě.',
+        ],
       }
     ],
   },

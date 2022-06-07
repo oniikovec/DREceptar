@@ -11,13 +11,13 @@ const Recipes = () => {
     <RecipesContainer>
       {
         Object.keys(recipesMap).map(title => (
-          <Fragment key={title}>
-            {
-              recipesMap[title].map(recipe => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-              ))
-            }
-          </Fragment>
+        <Fragment key={title}>
+          {
+            recipesMap[title].map(recipe => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))
+          }
+        </Fragment>
         ))
       }   
     </RecipesContainer>
