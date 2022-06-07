@@ -41,8 +41,7 @@ export const RecipeContainer = styled.div`
   }
   @media screen and (max-width: 414px) {
     margin-top: 10px;
-    padding: 10px;
-
+    
     h1 {
     font-size: 1.4rem;
     }
@@ -71,6 +70,13 @@ export const RecipeImageContainer = styled.div`
   @media screen and (max-width: 1024px) {
     width: 100%;
   }
+  @media screen and (max-width: 600px) {
+    height: 300px;
+  }
+  @media screen and (max-width: 600px) {
+    height: 250px;
+  }
+
 `
 export const RecipeImage = styled.div`
   width: 100%;
