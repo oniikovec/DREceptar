@@ -1,9 +1,13 @@
 import { SearchBoxContainer, SearchInput } from './searbox.styles'
 
-const SearchBox = () => {
+const SearchBox = ({ searchfield, searchChange }) => {
   return (
     <SearchBoxContainer>
-      <SearchInput type='search' placeholder='Hledat recept...' />
+      <SearchInput 
+        onChange={searchChange}
+        type='search' 
+        placeholder='Hledat recept...'   
+      />
     </SearchBoxContainer>
   )
 }
