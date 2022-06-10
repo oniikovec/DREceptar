@@ -19,3 +19,9 @@ export const RecipesContainer = styled.div`
     grid-gap: 10px;
   }
 `
+
+export const RecipeNotFound = styled.h2`
+  font-size: 1rem;
+  text-align: center;
+  padding: 50px;
+`

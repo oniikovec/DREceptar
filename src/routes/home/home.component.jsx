@@ -10,7 +10,6 @@ const Home = () => {
   const [searchfield, setSearchfield] = useState('')
 
   const onSearchChange = (event) => {
-    console.log(event.target.value);
     setSearchfield(event.target.value)
   }
 
