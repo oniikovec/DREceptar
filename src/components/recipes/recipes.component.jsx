@@ -23,7 +23,7 @@ const Recipes = ({ searchfield }) => {
             Object.keys(recipesMap).map(title => (
               filteredRecipes.includes(title) && recipesMap[title].map(recipe => (
                 <Fragment key={recipe}>
-                  <RecipeCard key={recipe.id} recipe={recipe} />
+                  <RecipeCard key={recipe.url} recipe={recipe} />
                 </Fragment>
               ))
             ))

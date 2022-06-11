@@ -3,11 +3,11 @@ const RECIPES_DATA = [
     title: 'ondrejovy-brioche-buns',
     items: [
       {
-        id: 1,
         name: 'Ondřejovy Brioche Buns',
         url: 'ondrejovy-brioche-buns',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/brioche-buns.jpg?alt=media&token=fd041f09-6924-4b17-85a7-863039293ec7',
         createdAt: '14. 5. 2020',
+        leadText: 'Recept na briošky inspirovaný francouzským pekařem. Upravená verze bez mléka, navíc ještě vláčnější. Dají se použít na hambáče, snídaňové toasty plněné vajíčkem a slaninou nebo klidně nasladko s marmoškou.',
         ingredients: [
           '1000 g hl. mouka na kynuté těsto (100 %)',
           '300 g vody 33°C (30 %)',
@@ -44,11 +44,11 @@ const RECIPES_DATA = [
     title: 'ondrejova-pizza-napoletana',
     items: [
       {
-        id: 2,
         name: 'Ondřejova Pizza Napoletana',
         url: 'ondrejova-pizza-napoletana',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/pizza-napoletana.jpg?alt=media&token=8718ebdf-ed76-4a1d-8c22-08bbc31fbb45',
         createdAt: '25. 6. 2020',
+        leadText: 'Tady není o čem. Na 9/10 to jde i bez pece. Dejte pizze čas vyzrát, co nejvyšší teplotu, moc dlouho ji v troubě nesušte a ona se vám náležitě odvděčí. Vše v receptu má své opodstatnění. Recept je považován za zážitkový a podmínkou jeho užívání je sdílení s rodinou nebo přáteli.',
         ingredients: [
           '800 g hl. mouka babišina na pizzu (100 %)', 
           '560 g voda (70 %)',
@@ -72,7 +72,7 @@ const RECIPES_DATA = [
           'Pizzu tvarujeme tak, jak kynulo, vršek je vršek a spodek je spodek. Posypeme a podsypeme krupičkou/semolinou (už ne moukou!).',
           'Plochou prstů tvarujeme okraj, který nikdy nemačkáme, stejně tak moc nemačkáme střed. Když už víc mačkat nejde, bereme pizzu na pěsti a rozházíme si jí do požadované velikosti nebo ji vyfackujeme.',
           'Lopatu posypeme semolinou/krupicí a přehodíme na ní pizzu. Doroztáhneme do požadované velikosti. Ozdobíme a moc to nezdržujeme, aby se sugo nepropilo a tím nepřilepilo těsto k lopatě. Na okraje lehce oliváč. Čas od času můžeme těstem na lopatě pošoupnout.',
-          'Otevřeme rozpálenou troubu na max (zapnutá alespoň hodinu před pečením), tím termostat začne troubu dohřívat, pizzu položíme na ocelový plát a necháme 60 s. Poté zašoupneme dovnitř a zavřeme. Po 120 s vyndaváme.',
+          'Otevřeme rozpálenou troubu na max (zapnutou alespoň hodinu před pečením), tím termostat začne troubu dohřívat, pizzu položíme na ocelový plát a necháme 60 s. Poté zašoupneme dovnitř a zavřeme. Po 120 s vyndaváme.',
           'Necháme odpočinout na mřížce a dosprejujeme oliváčem.',
         ],
         tips: [
@@ -90,11 +90,11 @@ const RECIPES_DATA = [
     title: 'ondrejuv-sourdough-bread',
     items: [
       {
-        id: 3,
         name: 'Ondřejův Sourdough Bread',
         url: 'ondrejuv-sourdough-bread',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/sourdough-bread.jpg?alt=media&token=a2f78416-b463-4160-b87c-317e418a4c8c',
         createdAt: '17. 5. 2021',
+        leadText: 'Dospět k tomuto finálnímu receptu mě stálo hodně úsilí. Verzí bylo něco málo pod 20 a tahle se osvědčila nejvíce. U kváskového chlebu je tolik proměnných, které musíte splnit na jedničku, že selhání není nic neobvyklého. Než jsem upekl chleba, se kterým jsem byl spokojený alespoň na 8/10, zabralo mi to půl roku. Proto si važte každé doprobrobna rozepsané informace, recept je sice obsáhlejší, možná vás ale zachrání od zklamání a rozteklé, tuhé placky. Příprava zabere dost času, buďte trpěliví. Chcete přece pořádně vysoký a měkkoučký krajíc s jemně křupavou kůrčičkou, že?',
         ingredients: [
           '700 g hl. pš. babišina chlebová',
           '300 g hl. pš. celo. nature-promises',
@@ -134,9 +134,9 @@ const RECIPES_DATA = [
     title: 'ondrejova-pho-ga',
     items: [
       {
-        id: 4,
         name: 'Ondřejova Phở Gà',
         url: 'ondrejova-pho-ga',
+        leadText: 'PHOck MSG! Tohle fáčko vytuněné bůčkem je BEZ botkaně/MSG/glutamanu. Místo jedné lžičky zvýrazňovače chuti ve vývaru musíme táhnout 4 jabka a kedlubnu a s dochucením se opravdu mazlit. A ani to botkaň zcela nenahradí, ale pokud chceme mít Pho ve zdravější verzi, než které dostaneme v 99 % restaurací, musíme tenhle zvýrazňovač oželit. A věřte, že až recept ozkoušíte, nebudete ho zas tak postrádat. Glutamátů do sebe sypete každý den mraky, tak tady uděláme výjimku. Váš domácí vývar bude mnohem silnější a nebude jen falešně ovoněný. Dobrou chuť a chci slyšet pořádný srkání!',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/pho-ga.jpg?alt=media&token=bec29cce-b6fc-4224-8e43-0975e8d60fcd',
         createdAt: '7. 12. 2020',
         ingredients: [
@@ -146,11 +146,11 @@ const RECIPES_DATA = [
           '4x jablko',
           '1x kedlubna',
           '2x cibule/větší šalotky',
-          '1x jarní cibulka',
+          '2x jarní cibulka',
           '10 cm zázvor',
-          '20x kardamom',
-          '12x badyán',
-          '5x skořice',
+          '40x kardamom',
+          '15x badyán',
+          '10x skořice',
           '5x hřebíček',
           'hrst semínek koriandru',
           'rybí omáčka, citron, chilli',
@@ -180,9 +180,9 @@ const RECIPES_DATA = [
     title: 'ondrejova-pho-bo',
     items: [
       {
-        id: 5,
         name: 'Ondřejova Phở Bò',
         url: 'ondrejova-pho-bo',
+        leadText: 'PHOck MSG! Tohle fáčko je BEZ botkaně/MSG/glutamanu. Místo jedné lžičky zvýrazňovače chuti ve vývaru musíme táhnout 4 jabka a kedlubnu a s dochucením se opravdu mazlit. A ani to botkaň zcela nenahradí, ale pokud chceme mít Pho ve zdravější verzi, než které dostaneme v 99 % restaurací, musíme tenhle zvýrazňovač oželit. A věřte, že až recept ozkoušíte, nebudete ho zas tak postrádat. Glutamátů do sebe sypete každý den mraky, tak tady uděláme výjimku. Váš domácí vývar bude mnohem silnější a nebude jen falešně ovoněný. Dobrou chuť a chci slyšet pořádný srkání!',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/pho-bo.jpg?alt=media&token=017b73e0-55a1-4928-a2f7-cae017902e47',
         createdAt: '8. 11. 2016',
         ingredients: [
@@ -195,9 +195,9 @@ const RECIPES_DATA = [
           '2x cibule/větší šalotky',
           '2x jarní cibulka',
           '10 cm zázvor',
-          '20x kardamom',
-          '12x badyán',
-          '5x skořice',
+          '40x kardamom',
+          '15x badyán',
+          '10x skořice',
           '5x hřebíček',
           'hrst semínek koriandru',
           'rybí omáčka, citron, chilli',
@@ -229,11 +229,11 @@ const RECIPES_DATA = [
     title: 'ondrejovy-tri-frgale',
     items: [
       {
-        id: 6,
         name: 'Ondřejovy tři frgále',
         url: 'ondrejovy-tri-frgale',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/tri-frgale.jpg?alt=media&token=8272d932-1959-4ea5-999d-eb24f675481e',
         createdAt: '20. 2. 2021',
+        leadText: 'Obyčejné, poctivé frgále. Ty žádné promo nepotřebujou. Využijete je nejlépe po O ke kafíčku.',
         ingredients: [
           '385 g hl. m. babišina na kynuté t.',
           '190 g polohrubá m.',
@@ -270,11 +270,11 @@ const RECIPES_DATA = [
     title: 'ondrejuv-krtkuv-dort',
     items: [
       {
-        id: 7,
-        name: 'Ondřejův krtkův dort',
+        name: 'Ondřejův Krtkův dort',
         url: 'ondrejuv-krtkuv-dort',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/krtkuv-dort.jpg?alt=media&token=9e2c1d0d-59d1-4a78-981d-efdf086a4ed8',
         createdAt: '7. 5. 2021',
+        leadText: 'Tradiční krtkův dort ve verzi bez mléka. Vyvinutý pro Kejtrsonku, která se ho přežrala k narozkám a už o něj moc nestojí. Tak ho lidi dávám aspoň vám.',
         ingredients: [
           '180 g polohrubá mouka',
           '125 ml nemléko',
@@ -308,11 +308,11 @@ const RECIPES_DATA = [
     title: 'ondrejovy-sourdough-pancakes',
     items: [
       {
-        id: 8,
         name: 'Ondřejovy Sourdough Pancakes',
         url: 'ondrejovy-sourdough-pancakes',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/dreceptar.appspot.com/o/sourdough-pancakes.jpg?alt=media&token=3404f178-5b95-4d55-951e-e0c6b71373ff',
         createdAt: '3. 3. 2022',
+        leadText: 'Pečete chleba a nevíte co s kváskem? Narvěte ho všude, třeba do palačinek. Je to jednoduchý, rychlý a moc dobrý!',
         ingredients: [
           '400 g nemléko',
           '300 g hl. mouka, klidně celozrnná',

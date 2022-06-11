@@ -159,3 +159,9 @@ export const RecipeBottomContainer = styled.div`
     margin-left: 16px;
   }
 `
+
+export const RecipeLeadText = styled.p`
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 50px ;
+`

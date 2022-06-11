@@ -5,7 +5,7 @@ import { RecipesContext } from '../../contexts/recipes.context'
 
 import Spinner from '../../components/spinner/spinner.component'
 
-import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer } from './recipe.styles'
+import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer, RecipeLeadText } from './recipe.styles'
 
 const Recipe = () => {
 
@@ -17,7 +17,7 @@ const Recipe = () => {
     setRecipeDetails(recipesMap[recipe])
   }, [recipe, recipesMap])
 
-  // this scrolls to the top of the page
+  // scrolls to the top of the page
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -29,7 +29,7 @@ const Recipe = () => {
           <Spinner />
         ) : (
           recipeDetails && recipeDetails.map(recipe => (
-          <RecipeContainer key={recipe.id}>
+          <RecipeContainer key={recipe.url}>
             <h1>{recipe.name}</h1>
             <small>{recipe.createdAt}</small>
 
@@ -51,6 +51,7 @@ const Recipe = () => {
             </RecipeTopContainer>
 
             <RecipeBottomContainer>
+              <RecipeLeadText>{recipe.leadText}</RecipeLeadText>
               <h3>Postup</h3>
               <ol>
                 {
