@@ -19,6 +19,7 @@ export const BaseButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s;
+  margin: 1px;
   
   &:hover {
     background-color: #9adbf5;

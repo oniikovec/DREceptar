@@ -331,7 +331,7 @@ const RECIPES_DATA = [
         ],
       }
     ],
-  },
+  }, 
 ];
 
 export default RECIPES_DATA;

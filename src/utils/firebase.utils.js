@@ -8,8 +8,7 @@ import {
 } from 'firebase/auth'
 
 import { getFirestore, 
-  doc, 
-  getDoc, 
+  doc,
   setDoc,
   orderBy, 
   collection, 
@@ -61,6 +60,13 @@ export const getCurrentUser = () => {
   });
 };
 
+// adds doc to to Firestore DB collection
+export const addRecipe = async (collectionKey, recipeTitle, recipeToAdd) => {
+  const collectionRef = collection(db, collectionKey)
+  await setDoc(doc(collectionRef, recipeTitle), recipeToAdd)
+  console.log('Saved to DB');
+}
+
 // adding data from RECIPES_DATA.js to Firestore DB with running useEffect in recipes.context.js
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = collection(db, collectionKey)
@@ -83,7 +89,6 @@ export const getCategoriesAndDocuments = async () => {
   const querySnapshot = await getDocs(q)
   // this will give us the categories as an array
   const recipeMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    
     const { title, items } = docSnapshot.data()
     acc[title] = items
     return acc
@@ -91,3 +96,16 @@ export const getCategoriesAndDocuments = async () => {
 
   return recipeMap
 }
+export const newGetCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'test')
+  const q = query(collectionRef, orderBy("title"))
+
+  const querySnapshot = await getDocs(q)
+  // this will give us the categories as an array
+  const recipeMap = querySnapshot.docs.map(doc => (
+    { ...doc.data() }
+  ))
+
+  return recipeMap
+}
+

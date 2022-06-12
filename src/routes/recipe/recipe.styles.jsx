@@ -165,3 +165,8 @@ export const RecipeLeadText = styled.p`
   font-weight: 500;
   margin-bottom: 50px ;
 `
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`

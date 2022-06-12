@@ -2,16 +2,20 @@ import { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { RecipesContext } from '../../contexts/recipes.context'
+import { UserContext } from '../../contexts/user.context'
 
 import Spinner from '../../components/spinner/spinner.component'
+import Button from '../../components/button/button.component'
 
-import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer, RecipeLeadText } from './recipe.styles'
+import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer, RecipeLeadText, ButtonsContainer } from './recipe.styles'
 
 const Recipe = () => {
 
   const { recipe } = useParams()
   const { recipesMap, isLoading } = useContext(RecipesContext)
   const [recipeDetails, setRecipeDetails] = useState(recipesMap[recipe])
+
+  const { currentUser } = useContext(UserContext)
 
   useEffect(() => {
     setRecipeDetails(recipesMap[recipe])
@@ -75,6 +79,13 @@ const Recipe = () => {
                 )
               }
             </RecipeBottomContainer>
+            {
+              currentUser && 
+              <ButtonsContainer>
+                <Button buttonType='inverted'>upravit</Button>
+                <Button buttonType='inverted'>smazat</Button>
+              </ButtonsContainer>
+            }
           </RecipeContainer>
         ))
         )

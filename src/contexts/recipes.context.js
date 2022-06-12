@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
-import { getCategoriesAndDocuments } from "../utils/firebase.utils";
+import { getCategoriesAndDocuments, newGetCategoriesAndDocuments } from "../utils/firebase.utils";
 
 // import { addCollectionAndDocuments } from '../utils/firebase.utils'
-// import RECIPES_DATA from '../recipes-data.js';
+// import TEST_DATA from '../test-data.js';
 
 
 export const RecipesContext = createContext({
@@ -15,7 +15,7 @@ export const RecipesProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false)
 
   // useEffect(() => {
-  //   addCollectionAndDocuments('recipes', RECIPES_DATA);
+  //   addCollectionAndDocuments('test', TEST_DATA);
   // }, []);
 
   useEffect(() => {
@@ -23,9 +23,18 @@ export const RecipesProvider = ({ children }) => {
       setIsLoading(true)
       const recipeMap = await getCategoriesAndDocuments()
       setRecipesMap(recipeMap)
+      console.log(recipeMap);
       setIsLoading(false)
     }
     getRecipesMap()
+  }, [])
+
+  useEffect(() => {
+    const testGetMap = async () => {
+      const testMap = await newGetCategoriesAndDocuments()
+      console.log(testMap);
+    }
+    testGetMap()
   }, [])
 
 
