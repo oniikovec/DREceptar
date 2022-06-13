@@ -29,6 +29,7 @@ const Recipe = () => {
     window.scrollTo(0, 0)
   }, [])
 
+
   return (
     <>
       {
@@ -47,7 +48,7 @@ const Recipe = () => {
               <RecipeIngredientsContainer>
                 <h3>Ingredience</h3>
                 {
-                  ingredients.map(ingredient => (
+                  ingredients?.map(ingredient => (
                     <label className='ingredience-label' key={ingredient}>
                       <input type='checkbox'/>
                       {ingredient}
@@ -62,7 +63,7 @@ const Recipe = () => {
               <h3>Postup</h3>
               <ol>
                 {
-                  instructions.map(instruction => (
+                  instructions?.map(instruction => (
                     <li key={instruction}>{instruction}</li>
                   ))
                 }
@@ -73,7 +74,7 @@ const Recipe = () => {
                     <h3>Tipy</h3>
                     <ul>
                       {
-                        tips.map(tip => (
+                        tips?.map(tip => (
                           <li key={tip}>{tip}</li>
                         ))
                       }

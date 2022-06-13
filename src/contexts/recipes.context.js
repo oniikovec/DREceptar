@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import { newGetCategoriesAndDocuments } from "../utils/firebase.utils";
 
 // import { addCollectionAndDocuments } from '../utils/firebase.utils'
-// import TEST_DATA from '../test-data.js';
+// import RECIPES_DATA from '../recipes-data.js';
 
 
 export const RecipesContext = createContext({
@@ -15,7 +15,7 @@ export const RecipesProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false)
 
   // useEffect(() => {
-  //   addCollectionAndDocuments('test', TEST_DATA);
+  //   addCollectionAndDocuments('recipes', RECIPES_DATA);
   // }, []);
 
   useEffect(() => {

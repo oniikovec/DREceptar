@@ -73,7 +73,7 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   const batch = writeBatch(db)
 
   objectsToAdd.forEach((object) => {
-    const docRef = doc(collectionRef, object.url)
+    const docRef = doc(collectionRef, object.title)
     batch.set(docRef, object)
   })
 
@@ -97,7 +97,7 @@ export const getCategoriesAndDocuments = async () => {
   return recipeMap
 }
 export const newGetCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'test')
+  const collectionRef = collection(db, 'recipes')
   const q = query(collectionRef, orderBy("title"))
 
   const querySnapshot = await getDocs(q)
