@@ -4,13 +4,13 @@ import { RecipeCardContainer, RecipeCardImage, RecipeCardDescription } from './r
 const RecipeCard = ({ recipe }) => {
 
   
-  const { name, createdAt, url, imageUrl } = recipe
+  const { title, createdAt, url, imageUrl } = recipe
 
   return (
     <RecipeCardContainer to={`/${url}`}>
       <RecipeCardImage imageUrl={imageUrl} />
       <RecipeCardDescription>
-        <h1>{name}</h1>
+        <h1>{title}</h1>
         <small>{createdAt}</small>
       </RecipeCardDescription>
     </RecipeCardContainer>

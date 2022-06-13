@@ -9,6 +9,7 @@ import Button from '../button/button.component'
 const defaultFormFields = {
   title: '',
   url: '',
+  createdAt: '',
   imageUrl: '',
   leadText: '',
   ingredients: '',
@@ -19,7 +20,7 @@ const defaultFormFields = {
 const NewRecipeForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { title, url, imageUrl, leadText, ingredients, instructions, tips } = formFields;
+  const { title, url, createdAt, imageUrl, leadText, ingredients, instructions, tips } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,6 +43,7 @@ const NewRecipeForm = () => {
       <h1>Nový recept</h1>
       <form>
         <FormInput label="Title" type="text" required onChange={handleChange} name="title" value={title} />
+        <FormInput label="Created at" type="text" required onChange={handleChange} name="createdAt" value={createdAt} />
         <FormInput label="URL" type="text" required onChange={handleChange} name="url" value={url} />
         <FormInput label="Image URL from Firebase Storage" type="text" required onChange={handleChange} name="imageUrl" value={imageUrl} />
         <FormInput label="Lead Text" type="text" required onChange={handleChange} name="leadText" value={leadText} />

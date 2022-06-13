@@ -11,15 +11,18 @@ import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage,
 
 const Recipe = () => {
 
-  const { recipe } = useParams()
+  const params = useParams()
   const { recipesMap, isLoading } = useContext(RecipesContext)
-  const [recipeDetails, setRecipeDetails] = useState(recipesMap[recipe])
-
+  const [recipeDetails, setRecipeDetails] = useState({})
+  const { title, createdAt, imageUrl, leadText, ingredients, instructions, tips } = recipeDetails
+  
   const { currentUser } = useContext(UserContext)
-
+  
   useEffect(() => {
-    setRecipeDetails(recipesMap[recipe])
-  }, [recipe, recipesMap])
+    recipesMap.map(recipe => (
+      recipe.url.includes(params.recipe) && setRecipeDetails(recipe)
+      ))
+    }, [params, recipesMap])
 
   // scrolls to the top of the page
   useEffect(() => {
@@ -32,19 +35,19 @@ const Recipe = () => {
         isLoading ? (
           <Spinner />
         ) : (
-          recipeDetails && recipeDetails.map(recipe => (
-          <RecipeContainer key={recipe.url}>
-            <h1>{recipe.name}</h1>
-            <small>{recipe.createdAt}</small>
+        recipeDetails &&
+          <RecipeContainer>
+            <h1>{title}</h1>
+            <small>{createdAt}</small>
 
             <RecipeTopContainer>
               <RecipeImageContainer>
-                <RecipeImage imageUrl={recipe.imageUrl} />
+                <RecipeImage imageUrl={imageUrl} />
               </RecipeImageContainer>
               <RecipeIngredientsContainer>
                 <h3>Ingredience</h3>
                 {
-                  recipe.ingredients.map(ingredient => (
+                  ingredients.map(ingredient => (
                     <label className='ingredience-label' key={ingredient}>
                       <input type='checkbox'/>
                       {ingredient}
@@ -55,22 +58,22 @@ const Recipe = () => {
             </RecipeTopContainer>
 
             <RecipeBottomContainer>
-              <RecipeLeadText>{recipe.leadText}</RecipeLeadText>
+              <RecipeLeadText>{leadText}</RecipeLeadText>
               <h3>Postup</h3>
               <ol>
                 {
-                  recipe.instructions.map(instruction => (
+                  instructions.map(instruction => (
                     <li key={instruction}>{instruction}</li>
                   ))
                 }
               </ol>
               {
-                recipe.tips && (
+                tips && (
                   <>
                     <h3>Tipy</h3>
                     <ul>
                       {
-                        recipe.tips.map(tip => (
+                        tips.map(tip => (
                           <li key={tip}>{tip}</li>
                         ))
                       }
@@ -87,7 +90,6 @@ const Recipe = () => {
               </ButtonsContainer>
             }
           </RecipeContainer>
-        ))
         )
       }
     </>

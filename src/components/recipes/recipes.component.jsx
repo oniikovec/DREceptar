@@ -8,8 +8,8 @@ const Recipes = ({ searchfield }) => {
   const { recipesMap } = useContext(RecipesContext)
 
   // filteredRecipes is an array full of 'titles' only
-  const filteredRecipes = Object.keys(recipesMap).filter(title => (
-    title.toLowerCase().includes(searchfield.toLowerCase())
+  const filteredRecipes = recipesMap.filter(recipe => (
+    recipe.title.toLowerCase().includes(searchfield.toLowerCase()) && recipe
   ))
 
   return (
@@ -20,12 +20,10 @@ const Recipes = ({ searchfield }) => {
         ) : (
           <RecipesContainer>
           {
-            Object.keys(recipesMap).map(title => (
-              filteredRecipes.includes(title) && recipesMap[title].map(recipe => (
-                <Fragment key={recipe}>
-                  <RecipeCard key={recipe.url} recipe={recipe} />
-                </Fragment>
-              ))
+            filteredRecipes && filteredRecipes.map(recipe => (
+              <Fragment key={recipe.url}>
+                <RecipeCard key={recipe.url} recipe={recipe} />
+              </Fragment>
             ))
           }
           </RecipesContainer>
