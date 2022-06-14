@@ -28,15 +28,6 @@ export const RecipesProvider = ({ children }) => {
     getRecipesMap()
   }, [])
 
-  // useEffect(() => {
-  //   const testGetMap = async () => {
-  //     const testMap = await newGetCategoriesAndDocuments()
-  //     console.log(testMap);
-  //   }
-  //   testGetMap()
-  // }, [])
-
-
   const value = { recipesMap, isLoading }
 
   return (

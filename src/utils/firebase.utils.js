@@ -82,23 +82,23 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 }
 
 // getting data from Firestore
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'recipes')
-  const q = query(collectionRef, orderBy("title"))
+// export const getCategoriesAndDocuments = async () => {
+//   const collectionRef = collection(db, 'recipes')
+//   const q = query(collectionRef, orderBy("title"))
 
-  const querySnapshot = await getDocs(q)
-  // this will give us the categories as an array
-  const recipeMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data()
-    acc[title] = items
-    return acc
-  }, {})
+//   const querySnapshot = await getDocs(q)
+//   // this will give us the categories as an array
+//   const recipeMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+//     const { title, items } = docSnapshot.data()
+//     acc[title] = items
+//     return acc
+//   }, {})
 
-  return recipeMap
-}
+//   return recipeMap
+// }
 export const newGetCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'recipes')
-  const q = query(collectionRef, orderBy("title"))
+  const q = query(collectionRef, orderBy("order", 'asc'))
 
   const querySnapshot = await getDocs(q)
   // this will give us the categories as an array
