@@ -6,10 +6,13 @@ import { UserContext } from '../../contexts/user.context'
 
 import { deleteRecipe } from '../../utils/firebase.utils'
 
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
+
 import Spinner from '../../components/spinner/spinner.component'
 import Button from '../../components/button/button.component'
 
-import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer, RecipeLeadText, ButtonsContainer } from './recipe.styles'
+import { RecipeContainer, RecipeTopContainer, RecipeImageContainer, RecipeImage, RecipeIngredientsContainer, RecipeBottomContainer, RecipeLeadText, ButtonsContainer, AlertContainer, Alert, AlertButtonsContainer } from './recipe.styles'
 
 const Recipe = () => {
 
@@ -34,6 +37,8 @@ const Recipe = () => {
     window.scrollTo(0, 0)
   }, [])
 
+
+
   const handleDelete = async () => {
     const recipeFilter = recipesMap.filter(recipe => (
       recipe.url.includes(params.recipe)
@@ -41,9 +46,31 @@ const Recipe = () => {
     const recipeToDelete = recipeFilter.map(recipe => recipe.title).toString()
     console.log(recipeToDelete);
     deleteRecipe('recipes', recipeToDelete)
-    navigate('/', { replace: true })
+    navigateHome()
   }
 
+  const navigateHome = async () => {
+    await setTimeout(navigate('/', { replace: true }), 5000)
+  }
+
+  const confirmDelete = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <AlertContainer>
+            <Alert>
+              <h1>SMAZAT?</h1>
+              <p>Opravdu chceš smazat recept na {title}?</p>
+              <AlertButtonsContainer>
+                <Button buttonType='inverted' onClick={() => {handleDelete(); onClose()}}>Ano</Button>
+                <Button buttonType='inverted' onClick={onClose}>TVL NECHCI</Button>
+              </AlertButtonsContainer>
+            </Alert>
+          </AlertContainer>
+        )
+      }
+    })
+  };
   
   return (
     <>
@@ -102,7 +129,7 @@ const Recipe = () => {
               currentUser && 
               <ButtonsContainer>
                 <Button buttonType='inverted'>upravit</Button>
-                <Button buttonType='inverted' onClick={handleDelete}>smazat</Button>
+                <Button buttonType='inverted' onClick={confirmDelete}>smazat</Button>
               </ButtonsContainer>
             }
           </RecipeContainer>

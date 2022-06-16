@@ -168,5 +168,51 @@ export const RecipeLeadText = styled.p`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+
+  @media screen and (max-width: 414px) {
+    flex-direction: column;
+  }
+`
+
+export const AlertContainer = styled.div`
+  margin: 0 auto;
+  width: 95%;
+`
+
+export const Alert = styled.div`
+  padding: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px black;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+`
+export const AlertButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  @media screen and (max-width: 414px) {
+    flex-direction: column;
+  }
 `
