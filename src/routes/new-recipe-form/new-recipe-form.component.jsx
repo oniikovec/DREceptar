@@ -32,10 +32,7 @@ const NewRecipeForm = () => {
   }
 
   const ingredientsChange = (index, event) => {
-    const { name, value } = event.target
-    setFormFields(ingredients.map((ingredient, ingredientIndex) => (
-      ingredientIndex === index ? ([name]: value) : (ingredient)
-    )))
+
   }
 
   const addIngredient = (event, i) => {

@@ -1,8 +1,10 @@
 import { useContext, useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { RecipesContext } from '../../contexts/recipes.context'
 import { UserContext } from '../../contexts/user.context'
+
+import { deleteRecipe } from '../../utils/firebase.utils'
 
 import Spinner from '../../components/spinner/spinner.component'
 import Button from '../../components/button/button.component'
@@ -17,7 +19,10 @@ const Recipe = () => {
   const { title, createdAt, imageUrl, leadText, ingredients, instructions, tips } = recipeDetails
   
   const { currentUser } = useContext(UserContext)
-  
+
+  const navigate = useNavigate()
+
+
   useEffect(() => {
     recipesMap.map(recipe => (
       recipe.url.includes(params.recipe) && setRecipeDetails(recipe)
@@ -29,7 +34,17 @@ const Recipe = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  const handleDelete = async () => {
+    const recipeFilter = recipesMap.filter(recipe => (
+      recipe.url.includes(params.recipe)
+    ))
+    const recipeToDelete = recipeFilter.map(recipe => recipe.title).toString()
+    console.log(recipeToDelete);
+    deleteRecipe('recipes', recipeToDelete)
+    navigate('/', { replace: true })
+  }
 
+  
   return (
     <>
       {
@@ -87,7 +102,7 @@ const Recipe = () => {
               currentUser && 
               <ButtonsContainer>
                 <Button buttonType='inverted'>upravit</Button>
-                <Button buttonType='inverted'>smazat</Button>
+                <Button buttonType='inverted' onClick={handleDelete}>smazat</Button>
               </ButtonsContainer>
             }
           </RecipeContainer>

@@ -10,6 +10,7 @@ import {
 import { getFirestore, 
   doc,
   setDoc,
+  deleteDoc,
   orderBy, 
   collection, 
   writeBatch, 
@@ -32,7 +33,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore()
 
 export const auth = getAuth()
-// export const db = getFirestore()
 
 
 // SIGN IN
@@ -81,21 +81,14 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   console.log('done');
 }
 
-// getting data from Firestore
-// export const getCategoriesAndDocuments = async () => {
-//   const collectionRef = collection(db, 'recipes')
-//   const q = query(collectionRef, orderBy("title"))
+// delete recipe
+export const deleteRecipe = async (collectionKey, recipeToDelete) => {
+  const collectionRef = collection(db, collectionKey)
+  await deleteDoc(doc(collectionRef, recipeToDelete))
+  console.log(`Successfully deleted recipe: ${recipeToDelete}`);
+}
 
-//   const querySnapshot = await getDocs(q)
-//   // this will give us the categories as an array
-//   const recipeMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-//     const { title, items } = docSnapshot.data()
-//     acc[title] = items
-//     return acc
-//   }, {})
 
-//   return recipeMap
-// }
 export const newGetCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'recipes')
   const q = query(collectionRef, orderBy("order", 'asc'))
