@@ -27,10 +27,22 @@ const NewRecipeForm = () => {
     setFormFields({ ...formFields, [name]: value })
   }
 
-  const addIngredient = (event) => {
-    event.preventDefault()
+  const handleIngredientsChange = (index, event) => {
+
+  }
+
+  const ingredientsChange = (index, event) => {
+    const { name, value } = event.target
+    setFormFields(ingredients.map((ingredient, ingredientIndex) => (
+      ingredientIndex === index ? ([name]: value) : (ingredient)
+    )))
+  }
+
+  const addIngredient = (event, i) => {
+    const newIngredient = [...ingredients]
+    newIngredient[i].push({ ingredient: event.target.value})
     setFormFields({
-      ingredients: [ ...ingredients, { ingredient: '' }]
+      ...ingredients, newIngredient
     })
   }
   const removeIngredient = (index) => {
@@ -39,8 +51,6 @@ const NewRecipeForm = () => {
       ingredients: ingredients
     })
   }
-
-  
 
   const createRecipe = async (event) => {
     event.preventDefault()
@@ -56,13 +66,14 @@ const NewRecipeForm = () => {
     <NewRecipeFormContainer>
       <h1>Nový recept</h1>
       <form onSubmit={createRecipe}>
+        <h1>Title</h1>
         <input label='Title' placeholder='Recipe title' name='title' value={title} onChange={handleChange} />
-        <h4>Ingredience</h4>
+        <h1>Ingredients</h1>
         {
           ingredients.map((ingredient, index) => {
             return (
               <div key={index}>
-                <input label='Ingredience' placeholder='Ingredience' name='ingredient' value={ingredient.ingredient} onChange={handleChange} />
+                <input label='Ingredience' placeholder='Ingredience' name='ingredient' value={ingredient.ingredient} onChange={handleIngredientsChange} />
                 <button onClick={removeIngredient} >odebrat</button>
               </div>
             )
