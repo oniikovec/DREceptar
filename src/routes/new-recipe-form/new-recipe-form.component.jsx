@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { addRecipe } from '../../utils/firebase.utils';
 
 import { NewRecipeFormContainer } from './new-recipe-form.styles'
-import FormInput from '../../components/form-input/form-input.component'
 import Button from '../../components/button/button.component'
 
 const defaultFormFields = {
@@ -12,51 +11,39 @@ const defaultFormFields = {
   createdAt: '',
   imageUrl: '',
   leadText: '',
-  ingredients: [{ingredient: ''}],
-  instructions: "",
-  tips: "",
 };
 
 const NewRecipeForm = () => {
 
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const { title, url, createdAt, imageUrl, leadText, ingredients, instructions, tips } = formFields;
+  const [formFields, setFormFields] = useState(defaultFormFields)
+  const { title, url, createdAt, imageUrl, leadText } = formFields
+  const [ingredients, setIngredients] = useState([])
+  // const [instructions, setInstructions] = useState([])
+  // const [tips, setTips] = useState([])
+  const dataToSend = { ...formFields, ingredients: [...ingredients] }
+
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormFields({ ...formFields, [name]: value })
   }
 
-  const handleIngredientsChange = (index, event) => {
+  const handleIngredientsChange = () => setIngredients()
+  const addIngredient = () => setIngredients([...ingredients, ''])
+  const deleteIngredient = () => setIngredients()
 
-  }
-
-  const ingredientsChange = (index, event) => {
-
-  }
-
-  const addIngredient = (event, i) => {
-    const newIngredient = [...ingredients]
-    newIngredient[i].push({ ingredient: event.target.value})
-    setFormFields({
-      ...ingredients, newIngredient
-    })
-  }
-  const removeIngredient = (index) => {
-    ingredients.splice(index, 1)
-    setFormFields({
-      ingredients: ingredients
-    })
-  }
 
   const createRecipe = async (event) => {
     event.preventDefault()
-    addRecipe('recipes', url, formFields)
-    resetFormFields()
+    // addRecipe('test', url, dataToSend)
+    // resetFormFields()
   }
 
   const resetFormFields = () => {
-    setFormFields(defaultFormFields);
+    setFormFields(defaultFormFields)
+    setIngredients([])
+    // setInstructions([])
+    // setTips([])
   };
 
   return (
@@ -65,19 +52,22 @@ const NewRecipeForm = () => {
       <form onSubmit={createRecipe}>
         <h1>Title</h1>
         <input label='Title' placeholder='Recipe title' name='title' value={title} onChange={handleChange} />
+        <input label='URL' placeholder='url' name='url' value={url} onChange={handleChange} />
+        <input label='createdAt' placeholder='createdAt' name='createdAt' value={createdAt} onChange={handleChange} />
+        <input label='imageUrl' placeholder='imageUrl' name='imageUrl' value={imageUrl} onChange={handleChange} />
+        <input label='leadText' placeholder='leadText' name='leadText' value={leadText} onChange={handleChange} />
         <h1>Ingredients</h1>
         {
-          ingredients.map((ingredient, index) => {
+          ingredients.map((ingredient) => {
             return (
-              <div key={index}>
-                <input label='Ingredience' placeholder='Ingredience' name='ingredient' value={ingredient.ingredient} onChange={handleIngredientsChange} />
-                <button onClick={removeIngredient} >odebrat</button>
+              <div key={ingredient}>
+                <input label='Ingredient' placeholder='Add ingredient' name='ingredient' value={ingredient} onChange={handleIngredientsChange} />
+                <button onClick={deleteIngredient}>odebrat</button>
               </div>
             )
           })
         }
-
-        <button onClick={addIngredient} >přidat</button>
+        <button onClick={addIngredient}>přidat</button>
       </form>
       <Button onClick={createRecipe}>ODESLAT</Button>
     </NewRecipeFormContainer>
