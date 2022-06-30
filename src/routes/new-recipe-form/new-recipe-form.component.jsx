@@ -13,24 +13,40 @@ const defaultFormFields = {
   leadText: '',
 };
 
+const defaultIngredients = [
+  {
+    id: 1,
+    ingredient: 'defaultní ingredience'
+  }
+]
+  
+
 const NewRecipeForm = () => {
 
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { title, url, createdAt, imageUrl, leadText } = formFields
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState(defaultIngredients)
   // const [instructions, setInstructions] = useState([])
   // const [tips, setTips] = useState([])
-  const dataToSend = { ...formFields, ingredients: [...ingredients] }
+  const dataToSend = { ...formFields, ...ingredients }
 
 
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setFormFields({ ...formFields, [name]: value })
+  const handleFormFieldsChange = (event) => {
+    setFormFields({ ...formFields, [event.target.name]: event.target.value })
   }
 
-  const handleIngredientsChange = () => setIngredients()
-  const addIngredient = () => setIngredients([...ingredients, ''])
-  const deleteIngredient = () => setIngredients()
+  const handleIngredientsChange = ( event) => {
+    setIngredients()
+  }
+  console.log(ingredients)
+
+  const addIngredient = () => {
+    setIngredients([...ingredients, ''])
+  }
+
+  const deleteIngredient = (index) => {
+    setIngredients()
+  }
 
 
   const createRecipe = async (event) => {
@@ -51,21 +67,19 @@ const NewRecipeForm = () => {
       <h1>Nový recept</h1>
       <form onSubmit={createRecipe}>
         <h1>Title</h1>
-        <input label='Title' placeholder='Recipe title' name='title' value={title} onChange={handleChange} />
-        <input label='URL' placeholder='url' name='url' value={url} onChange={handleChange} />
-        <input label='createdAt' placeholder='createdAt' name='createdAt' value={createdAt} onChange={handleChange} />
-        <input label='imageUrl' placeholder='imageUrl' name='imageUrl' value={imageUrl} onChange={handleChange} />
-        <input label='leadText' placeholder='leadText' name='leadText' value={leadText} onChange={handleChange} />
+        <input label='Title' placeholder='Recipe title' name='title' value={title} onChange={handleFormFieldsChange} />
+        <input label='URL' placeholder='url' name='url' value={url} onChange={handleFormFieldsChange} />
+        <input label='createdAt' placeholder='createdAt' name='createdAt' value={createdAt} onChange={handleFormFieldsChange} />
+        <input label='imageUrl' placeholder='imageUrl' name='imageUrl' value={imageUrl} onChange={handleFormFieldsChange} />
+        <input label='leadText' placeholder='leadText' name='leadText' value={leadText} onChange={handleFormFieldsChange} />
         <h1>Ingredients</h1>
         {
-          ingredients.map((ingredient) => {
-            return (
-              <div key={ingredient}>
-                <input label='Ingredient' placeholder='Add ingredient' name='ingredient' value={ingredient} onChange={handleIngredientsChange} />
-                <button onClick={deleteIngredient}>odebrat</button>
-              </div>
-            )
-          })
+          ingredients.map(ingredient => (
+            <div key={ingredient.id}>
+              <input placeholder='Ingredient' name={ingredient.id} value={ingredient.ingredient} onChange={handleIngredientsChange}/>
+              <button onClick={deleteIngredient}>odebrat</button>
+            </div>
+          ))
         }
         <button onClick={addIngredient}>přidat</button>
       </form>
@@ -75,3 +89,6 @@ const NewRecipeForm = () => {
 }
 
 export default NewRecipeForm
+
+
+
